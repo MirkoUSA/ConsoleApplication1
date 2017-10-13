@@ -18,19 +18,24 @@
                             @Html.TextBoxFor(m => m.LeftValue)
 
                             @*Monkeys Home*@
-                            <img src="~/Content/monkey.jpg" />
+                            <img src="~/Content/monkey.jpg" width="70" />
                         </td>
-                        <td>
-                            @*Monkeys on the Rope*@
-                            <img src="~/Content/monkey.jpg" />
-                            <img src="~/Content/monkey.jpg" />
-                            <img src="~/Content/monkey.jpg" />
+                        <td class="crossing-rope">
+                            @*Monkeys on the Rope
+                                <img src="~/Content/monkey.jpg" />
+                                <img src="~/Content/monkey.jpg" />
+                                <img src="~/Content/monkey.jpg" />*@
+                            @*Changed Monkey img to div tag to control from javascript*@
+
+                            <div id="monkey1" class="showMonkey"></div>
+                            <div id="monkey2" class="showMonkey"></div>
+                            <div id="monkey3" class="showMonkey"></div>
                         </td>
                         <td class="text-center">
                             @Html.TextBoxFor(m => m.RiteValue)
 
                             @*Monkeys Home*@
-                            <img src="~/Content/monkey.jpg" />
+                            <img src="~/Content/monkey.jpg" width="70" />
                         </td>
                     </tr>
                     <tr>

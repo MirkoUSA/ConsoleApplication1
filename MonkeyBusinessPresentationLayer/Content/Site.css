@@ -1,24 +1,48 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+	padding-top: 50px;
+	padding-bottom: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
 .dl-horizontal dt {
-    white-space: normal;
+	white-space: normal;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
-    max-width: 280px;
+	max-width: 280px;
+}
+
+
+/*Adding some basic styles*/
+
+.crossing-rope {
+	width: 300px;
+	height: 160px;
+	text-align: center;
+	vertical-align: bottom;
+}
+
+/*Active Monkeys*/
+.showMonkey {
+	width: 75px;
+	height: 120px;
+	background-image: url(monkey.jpg);
+	background-size: 75px 120px;
+	display: inline-block;
+}
+.hideMonkey {
+	width: 75px;
+	height: 120px;
+	display: inline-block;
 }
