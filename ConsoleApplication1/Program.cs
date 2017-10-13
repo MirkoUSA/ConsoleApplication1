@@ -31,10 +31,13 @@ namespace ConsoleApplication1
                     if (iA > 3) { iQueue = 3; } else { iQueue = iA; }
 
                     // Setting Monkeys Crossing thru a for loop
-                    for (var i = 0; i < iQueue; i++)
+                    for (var i = 1; i < iQueue + 3; i++) // Added additional values to the queue to ensure the monkeys can get out
                     {
-                        // Stablish Monkey Position
-                        var iPos = i % 4;
+                        // Subtraction of total pending monkeys and ensure that does not take more than the queue
+                        if (i <= iQueue) { iA--; }
+
+                        // Stablish Monkey position using MOD 
+                        var iPos = i % 4;  
 
                         // Each Position represents the various stages of the Rope Crossing scenarios (25%, 50%, 75% & 100%)
                         var iPos1 = iPos == 1 ? true : false;
@@ -43,7 +46,7 @@ namespace ConsoleApplication1
                         var iPos4 = iPos == 4 ? true : false;
 
 
-                        Console.WriteLine("{0}{1}{2}{3}", iPos1, iPos2, iPos3, iPos4 );
+                        Console.WriteLine("{0}{1}{2}{3}", iPos1, iPos2, iPos3, iPos4);
 
                     }
 
@@ -52,7 +55,7 @@ namespace ConsoleApplication1
 
                 Console.WriteLine("{0} - {1}", iA, iB);
 
-                iA--;
+                //iA--;
             }
 
         }
