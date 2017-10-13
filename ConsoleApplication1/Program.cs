@@ -24,11 +24,12 @@ namespace ConsoleApplication1
             // Setting While Repeater
             while (iA > 0)
             {
-
                 if (iA > iB)
                 {
-                    // Queue value should be max of 3
-                    if (iA > 3) { iQueue = 3; } else { iQueue = iA; }
+                    // Queue value should be max of 3 
+                    // But uses the whole count when the other side is 0
+                    if (iB == 0) { iQueue = iA; }
+                    else { if (iA > 3) { iQueue = 3; } else { iQueue = iA; } }
 
                     // Setting Monkeys Crossing thru a for loop
                     for (var i = 1; i < iQueue + 4; i++) // Added additional values to the queue to ensure the monkeys can get out
