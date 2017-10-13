@@ -17,13 +17,16 @@ namespace ConsoleApplication1
         {
             // Setting Variables for the 2 input boxes
             var iA = 5;
-            var iB = 0;
+            var iB = 17;
 
-            var iQueue = 0;
 
             // Setting While Repeater
-            while (iA > 0)
+            // Added condition for both A & B
+            while (iA > 0 || iB > 0)
             {
+                // Reset Queue for each loop
+                var iQueue = 0;
+
                 if (iA > iB)
                 {
                     // Queue value should be max of 3 
@@ -49,7 +52,8 @@ namespace ConsoleApplication1
 
                         // Change True/False to ASCII character to make it easier to read
                         // Add counter to each row
-                        Console.WriteLine("{0}{1}{2}{3}{4}", iPos1 ? "*" : "_", iPos2 ? "*" : "_", iPos3 ? "*" : "_", iPos4 ? "*" : "_", iA);
+                        // Changed counter to reflect where it originates from
+                        Console.WriteLine("{0}{1}{2}{3}{4}", iA, iPos1 ? "*" : "_", iPos2 ? "*" : "_", iPos3 ? "*" : "_", iPos4 ? "*" : "_");
                     }
                 }
                 else
@@ -70,7 +74,8 @@ namespace ConsoleApplication1
                         var iPos3 = (iPos == 3 && i < iQueue + 3) || (i >= 3 && i < iQueue + 3) ? true : false;
                         var iPos4 = (iPos == 0 && i < iQueue + 4) || (i >= 4 && i < iQueue + 4) ? true : false;
 
-                        Console.WriteLine("{0}{1}{2}{3}{4}", iPos1 ? "*" : "_", iPos2 ? "*" : "_", iPos3 ? "*" : "_", iPos4 ? "*" : "_", iB);
+                        // Need to invert sequence to reflect bi-directional traffic
+                        Console.WriteLine("{0}{1}{2}{3}{4}", iPos4 ? "*" : "_", iPos3 ? "*" : "_", iPos2 ? "*" : "_", iPos1 ? "*" : "_", iB);
                     }
                 }
 
