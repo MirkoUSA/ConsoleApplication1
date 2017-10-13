@@ -17,11 +17,15 @@ namespace MonkeyBusinessClassLibrary
 
         public String[] XingMonkeys(int iValueA, int iValueB)
         {
-            var iA = 5;
-            var iB = 17;
+            // Changed hardcoded values to passing parameters
+            var iA = iValueA;
+            var iB = iValueB;
 
             var aCount = 0;
             var bCount = 0;
+
+            // Created new List variable
+            var lst = new List<string>();
 
             while (iA > 0 || iB > 0)
             {
@@ -42,7 +46,9 @@ namespace MonkeyBusinessClassLibrary
                         var iPos3 = (iPos == 3 && i < iQueue + 3) || (i >= 3 && i < iQueue + 3) ? true : false;
                         var iPos4 = (iPos == 0 && i < iQueue + 4) || (i >= 4 && i < iQueue + 4) ? true : false;
 
-                        Console.WriteLine("{0}{1}{2}{3}{4}", iA, iPos1 ? "*" : "_", iPos2 ? "*" : "_", iPos3 ? "*" : "_", iPos4 ? "*" : "_");
+                        // Use List variable instead or Console.WriteLine
+                        //Console.WriteLine("{0}{1}{2}{3}{4}", iA, iPos1 ? "*" : "_", iPos2 ? "*" : "_", iPos3 ? "*" : "_", iPos4 ? "*" : "_");
+                        lst.Add(string.Format("{0}{1}{2}{3}{4}", iA, iPos1 ? "*" : "_", iPos2 ? "*" : "_", iPos3 ? "*" : "_", iPos4 ? "*" : "_"));
                     }
                     aCount++;
                 }
@@ -61,14 +67,16 @@ namespace MonkeyBusinessClassLibrary
                         var iPos3 = (iPos == 3 && i < iQueue + 3) || (i >= 3 && i < iQueue + 3) ? true : false;
                         var iPos4 = (iPos == 0 && i < iQueue + 4) || (i >= 4 && i < iQueue + 4) ? true : false;
 
-                        Console.WriteLine("{0}{1}{2}{3}{4}", iPos4 ? "*" : "_", iPos3 ? "*" : "_", iPos2 ? "*" : "_", iPos1 ? "*" : "_", iB);
+                        // Same as above
+                        //Console.WriteLine("{0}{1}{2}{3}{4}", iPos4 ? "*" : "_", iPos3 ? "*" : "_", iPos2 ? "*" : "_", iPos1 ? "*" : "_", iB);
+                        lst.Add(string.Format("{0}{1}{2}{3}{4}", iPos4 ? "*" : "_", iPos3 ? "*" : "_", iPos2 ? "*" : "_", iPos1 ? "*" : "_", iB));
                     }
                     bCount++;
                 }
             }
 
-
-            return null;
+            // Return List converted to string array
+            return lst.ToArray();
         }
     }
 }
