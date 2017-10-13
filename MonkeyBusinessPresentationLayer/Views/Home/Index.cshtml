@@ -9,49 +9,50 @@
         // Created basic table to format layout
 
         <div class="jumbotron">
-            <p>Monkeys Crossing a Rope</p>
 
             <div class="row">
-                <table border="1">
+                <table border="0">
                     <tr>
                         <td class="text-center">
-                            @Html.TextBoxFor(m => m.LeftValue)
+                            @Html.TextBoxFor(m => m.LeftValue, new { @class = "text-center" })
                             <br /><br />
                             @*Monkeys Home*@
                             <img src="~/Content/monkey.jpg" width="70" />
                         </td>
-                        <td class="crossing-rope">
+                        @*Added border to simulate the rope*@
+                        <td class="crossing-rope" style="border-bottom: solid 3px Brown;">
                             @*Monkeys on the Rope
                                 <img src="~/Content/monkey.jpg" />
                                 <img src="~/Content/monkey.jpg" />
                                 <img src="~/Content/monkey.jpg" />*@
                             @*Changed Monkey img to div tag to control from javascript*@
 
-                            <div id="monkey1" class="showMonkey"></div>
-                            <div id="monkey2" class="showMonkey"></div>
-                            <div id="monkey3" class="showMonkey"></div>
+                            <div id="monkey1" class="hideMonkey"></div>
+                            <div id="monkey2" class="hideMonkey"></div>
+                            <div id="monkey3" class="hideMonkey"></div>
                         </td>
                         <td class="text-center">
-                            @Html.TextBoxFor(m => m.RiteValue)
+                            @Html.TextBoxFor(m => m.RiteValue, new { @class = "text-center" })
                             <br /><br />
                             @*Monkeys Home*@
                             <img src="~/Content/monkey.jpg" width="70" />
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td style="background-color: moccasin; padding: 10px;">
                             @*Add input boxes to reflect crossed monkey*@
-                            <input id="leftMonkeys" type="text" value="0" />
+                            <input id="leftMonkeys" type="text" value="0" class="text-center" />
                         </td>
                         <td class="text-center">
+                            <br /><br />
                             <input type="submit" value="Start" />
 
                             @*Crock to Eat Monkey*@
                             <img src="~/Content/Crocodile.jpg" width="200" height="100" />
                         </td>
-                        <td>
+                        <td style="background-color: moccasin; padding: 10px;">
                             @*Add input boxes to reflect crossed monkey*@
-                            <input id="rightMonkeys" type="text" value="0" />
+                            <input id="rightMonkeys" type="text" value="0" class="text-center" />
                         </td>
                     </tr>
                 </table>
@@ -78,7 +79,7 @@
             {
                 //javaScript Array Push here
                 @:myArray.push('@s');
-                    }
+                                            }
         }
     }
     // this creates the show
