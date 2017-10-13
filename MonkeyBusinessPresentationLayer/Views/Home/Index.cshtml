@@ -81,7 +81,23 @@
         if (i < myArray.length) {
 
             // Get single row from array into string variable
-            var myString = myArray[i]; alert(myString);
+            var myString = myArray[i]; //alert(myString);
+
+            // Split the string and parse each value to provide functionality to html content
+            var splt = myString.split(','); // Need separator on the string[] Model
+
+            // Variables for the rows count and completed cross
+            var leftBox = splt[0];
+            var riteBox = splt[4];
+
+            // Hide all monkeys
+            $('.showMonkey').addClass('hideMonkey').removeClass('showMonkey');
+
+            // Variable that represent Monkeys Crossing and conversion to html tags using styles classes
+            if (splt[1].indexOf('*') == 0) { $('#monkey1').removeClass('hideMonkey').addClass('showMonkey'); }
+            if (splt[2].indexOf('*') == 0) { $('#monkey2').removeClass('hideMonkey').addClass('showMonkey'); }
+            if (splt[3].indexOf('*') == 0) { $('#monkey3').removeClass('hideMonkey').addClass('showMonkey'); }
+
 
             // Increases the value of i
             i++;

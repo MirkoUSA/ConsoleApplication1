@@ -48,7 +48,8 @@ namespace MonkeyBusinessClassLibrary
 
                         // Use List variable instead or Console.WriteLine
                         //Console.WriteLine("{0}{1}{2}{3}{4}", iA, iPos1 ? "*" : "_", iPos2 ? "*" : "_", iPos3 ? "*" : "_", iPos4 ? "*" : "_");
-                        lst.Add(string.Format("{0}{1}{2}{3}{4}", iA, iPos1 ? "*" : "_", iPos2 ? "*" : "_", iPos3 ? "*" : "_", iPos4 ? "*" : "_"));
+                        lst.Add(string.Format("{0},{1},{2},{3},{4}", iA, iPos1 ? "*" : "_", iPos2 ? "*" : "_", iPos3 ? "*" : "_", iPos4 ? "*" : "_"));
+                        // Added comma to separate the values to be able to use a longer than 9 count for the input
                     }
                     aCount++;
                 }
@@ -69,7 +70,8 @@ namespace MonkeyBusinessClassLibrary
 
                         // Same as above
                         //Console.WriteLine("{0}{1}{2}{3}{4}", iPos4 ? "*" : "_", iPos3 ? "*" : "_", iPos2 ? "*" : "_", iPos1 ? "*" : "_", iB);
-                        lst.Add(string.Format("{0}{1}{2}{3}{4}", iPos4 ? "*" : "_", iPos3 ? "*" : "_", iPos2 ? "*" : "_", iPos1 ? "*" : "_", iB));
+                        lst.Add(string.Format("{0},{1},{2},{3},{4}", iPos4 ? "*" : "_", iPos3 ? "*" : "_", iPos2 ? "*" : "_", iPos1 ? "*" : "_", iB));
+                        // Same as above
                     }
                     bCount++;
                 }
