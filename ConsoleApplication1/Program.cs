@@ -50,17 +50,34 @@ namespace ConsoleApplication1
                         // Change True/False to ASCII character to make it easier to read
                         // Add counter to each row
                         Console.WriteLine("{0}{1}{2}{3}{4}", iPos1 ? "*" : "_", iPos2 ? "*" : "_", iPos3 ? "*" : "_", iPos4 ? "*" : "_", iA);
-
                     }
+                }
+                else
+                {
+                    // Create crossing path from other direction
 
+                    // Same as above but inverted
+                    if (iA == 0) { iQueue = iB; }
+                    else { if (iB > 3) { iQueue = 3; } else { iQueue = iB; } }
+
+                    for (var i = 1; i < iQueue + 4; i++)
+                    {
+                        if (i <= iQueue) { iB--; }
+
+                        var iPos = i % 4;
+                        var iPos1 = (iPos == 1 && i < iQueue + 1) || (i >= 1 && i < iQueue + 1) ? true : false;
+                        var iPos2 = (iPos == 2 && i < iQueue + 2) || (i >= 2 && i < iQueue + 2) ? true : false;
+                        var iPos3 = (iPos == 3 && i < iQueue + 3) || (i >= 3 && i < iQueue + 3) ? true : false;
+                        var iPos4 = (iPos == 0 && i < iQueue + 4) || (i >= 4 && i < iQueue + 4) ? true : false;
+
+                        Console.WriteLine("{0}{1}{2}{3}{4}", iPos1 ? "*" : "_", iPos2 ? "*" : "_", iPos3 ? "*" : "_", iPos4 ? "*" : "_", iB);
+                    }
                 }
 
 
                 //Console.WriteLine("{0} - {1}", iA, iB);
-
                 //iA--;
             }
-
         }
     }
 }
