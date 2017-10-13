@@ -39,14 +39,20 @@
                         </td>
                     </tr>
                     <tr>
-                        <td></td>
+                        <td>
+                            @*Add input boxes to reflect crossed monkey*@
+                            <input id="leftMonkeys" type="text" value="0" />
+                        </td>
                         <td class="text-center">
                             <input type="submit" value="Start" />
 
                             @*Crock to Eat Monkey*@
                             <img src="~/Content/Crocodile.jpg" width="200" height="100" />
                         </td>
-                        <td></td>
+                        <td>
+                            @*Add input boxes to reflect crossed monkey*@
+                            <input id="rightMonkeys" type="text" value="0" />
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -72,7 +78,7 @@
             {
                 //javaScript Array Push here
                 @:myArray.push('@s');
-            }
+                    }
         }
     }
     // this creates the show
@@ -91,13 +97,26 @@
             var riteBox = splt[4];
 
             // Hide all monkeys
-            $('.showMonkey').addClass('hideMonkey').removeClass('showMonkey');
+            //$('.showMonkey').addClass('hideMonkey').removeClass('showMonkey');
 
             // Variable that represent Monkeys Crossing and conversion to html tags using styles classes
-            if (splt[1].indexOf('*') == 0) { $('#monkey1').removeClass('hideMonkey').addClass('showMonkey'); }
-            if (splt[2].indexOf('*') == 0) { $('#monkey2').removeClass('hideMonkey').addClass('showMonkey'); }
-            if (splt[3].indexOf('*') == 0) { $('#monkey3').removeClass('hideMonkey').addClass('showMonkey'); }
+            if (splt[1].indexOf('*') == 0) { $('#monkey1').removeClass('hideMonkey').addClass('showMonkey'); } else { $('#monkey1').removeClass('showMonkey').addClass('hideMonkey'); }
+            if (splt[2].indexOf('*') == 0) { $('#monkey2').removeClass('hideMonkey').addClass('showMonkey'); } else { $('#monkey2').removeClass('showMonkey').addClass('hideMonkey'); }
+            if (splt[3].indexOf('*') == 0) { $('#monkey3').removeClass('hideMonkey').addClass('showMonkey'); } else { $('#monkey3').removeClass('showMonkey').addClass('hideMonkey'); }
 
+            // Update input boxes after monkey is send across
+            if ((leftBox.indexOf('*') == -1) && (leftBox.indexOf('_') == -1)) { $('#LeftValue').val(leftBox); }
+            if ((riteBox.indexOf('*') == -1) && (riteBox.indexOf('_') == -1)) { $('#RiteValue').val(riteBox); }
+
+            // Update output boxes after monkey has crossed
+            if (leftBox.indexOf('*') == 0) {
+                var lBoxValue = Number.parseInt($('#leftMonkeys').val()) + 1;
+                $('#leftMonkeys').val(lBoxValue);
+            }
+            if (riteBox.indexOf('*') == 0) {
+                var rBoxValue = Number.parseInt($('#rightMonkeys').val()) + 1;
+                $('#rightMonkeys').val(rBoxValue);
+            }
 
             // Increases the value of i
             i++;
