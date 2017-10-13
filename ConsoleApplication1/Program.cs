@@ -16,7 +16,7 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
             // Setting Variables for the 2 input boxes
-            var iA = 2;
+            var iA = 5;
             var iB = 0;
 
             var iQueue = 0;
@@ -31,29 +31,31 @@ namespace ConsoleApplication1
                     if (iA > 3) { iQueue = 3; } else { iQueue = iA; }
 
                     // Setting Monkeys Crossing thru a for loop
-                    for (var i = 1; i < iQueue + 3; i++) // Added additional values to the queue to ensure the monkeys can get out
+                    for (var i = 1; i < iQueue + 4; i++) // Added additional values to the queue to ensure the monkeys can get out
                     {
                         // Subtraction of total pending monkeys and ensure that does not take more than the queue
                         if (i <= iQueue) { iA--; }
 
                         // Stablish Monkey position using MOD 
-                        var iPos = i % 4;  
+                        var iPos = i % 4;
 
                         // Each Position represents the various stages of the Rope Crossing scenarios (25%, 50%, 75% & 100%)
-                        var iPos1 = iPos == 1 ? true : false;
-                        var iPos2 = iPos == 2 ? true : false;
-                        var iPos3 = iPos == 3 ? true : false;
-                        var iPos4 = iPos == 4 ? true : false;
+                        // Add additional filtering to ensure each monkey in the queue gets thru
+                        var iPos1 = (iPos == 1 && i < iQueue + 1) || (i >= 1 && i < iQueue + 1) ? true : false;
+                        var iPos2 = (iPos == 2 && i < iQueue + 2) || (i >= 2 && i < iQueue + 2) ? true : false;
+                        var iPos3 = (iPos == 3 && i < iQueue + 3) || (i >= 3 && i < iQueue + 3) ? true : false;
+                        var iPos4 = (iPos == 0 && i < iQueue + 4) || (i >= 4 && i < iQueue + 4) ? true : false;
 
-
-                        Console.WriteLine("{0}{1}{2}{3}", iPos1, iPos2, iPos3, iPos4);
+                        // Change True/False to ASCII character to make it easier to read
+                        // Add counter to each row
+                        Console.WriteLine("{0}{1}{2}{3}{4}", iPos1 ? "*" : "_", iPos2 ? "*" : "_", iPos3 ? "*" : "_", iPos4 ? "*" : "_", iA);
 
                     }
 
                 }
 
 
-                Console.WriteLine("{0} - {1}", iA, iB);
+                //Console.WriteLine("{0} - {1}", iA, iB);
 
                 //iA--;
             }
