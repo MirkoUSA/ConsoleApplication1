@@ -77,9 +77,15 @@
     }
     // this creates the show
     function showPresentation() {
+        // Ensure that only one row at the time is display using 'i' from the global variables
+        if (i < myArray.length) {
 
+            // Get single row from array into string variable
+            var myString = myArray[i]; alert(myString);
 
+            // Increases the value of i
+            i++;
+        }
     }
 
 </script>
-
