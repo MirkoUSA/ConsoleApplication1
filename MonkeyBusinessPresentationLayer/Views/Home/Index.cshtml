@@ -16,7 +16,7 @@
                     <tr>
                         <td class="text-center">
                             @Html.TextBoxFor(m => m.LeftValue)
-
+                            <br /><br />
                             @*Monkeys Home*@
                             <img src="~/Content/monkey.jpg" width="70" />
                         </td>
@@ -33,7 +33,7 @@
                         </td>
                         <td class="text-center">
                             @Html.TextBoxFor(m => m.RiteValue)
-
+                            <br /><br />
                             @*Monkeys Home*@
                             <img src="~/Content/monkey.jpg" width="70" />
                         </td>
@@ -44,7 +44,7 @@
                             <input type="submit" value="Start" />
 
                             @*Crock to Eat Monkey*@
-                            <img src="~/Content/Crocodile.jpg" />
+                            <img src="~/Content/Crocodile.jpg" width="200" height="100" />
                         </td>
                         <td></td>
                     </tr>
@@ -65,10 +65,19 @@
 
     // this binds the MVC model to the javascript array
     function loadArray() {
-
+        // Use embedded C# to parse Model to javaScript array
+        @if (Model.CrossingMonkeys !=null)
+        {
+            foreach(var s in Model.CrossingMonkeys)
+            {
+                //javaScript Array Push here
+                @:myArray.push('@s');
+            }
+        }
     }
     // this creates the show
     function showPresentation() {
+
 
     }
 
