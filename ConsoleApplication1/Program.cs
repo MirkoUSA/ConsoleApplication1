@@ -19,6 +19,9 @@ namespace ConsoleApplication1
             var iA = 5;
             var iB = 17;
 
+            // Additional counters to ensure both side get to go
+            var aCount = 0;
+            var bCount = 0;
 
             // Setting While Repeater
             // Added condition for both A & B
@@ -27,7 +30,8 @@ namespace ConsoleApplication1
                 // Reset Queue for each loop
                 var iQueue = 0;
 
-                if (iA > iB)
+                // Ensures both side get to go
+                if ((iA >= iB && aCount == bCount) || bCount > aCount)
                 {
                     // Queue value should be max of 3 
                     // But uses the whole count when the other side is 0
@@ -55,6 +59,8 @@ namespace ConsoleApplication1
                         // Changed counter to reflect where it originates from
                         Console.WriteLine("{0}{1}{2}{3}{4}", iA, iPos1 ? "*" : "_", iPos2 ? "*" : "_", iPos3 ? "*" : "_", iPos4 ? "*" : "_");
                     }
+                    // Provides A with a reflected round
+                    aCount++;
                 }
                 else
                 {
@@ -77,11 +83,9 @@ namespace ConsoleApplication1
                         // Need to invert sequence to reflect bi-directional traffic
                         Console.WriteLine("{0}{1}{2}{3}{4}", iPos4 ? "*" : "_", iPos3 ? "*" : "_", iPos2 ? "*" : "_", iPos1 ? "*" : "_", iB);
                     }
+                    // Provides A with a reflected round
+                    bCount++;
                 }
-
-
-                //Console.WriteLine("{0} - {1}", iA, iB);
-                //iA--;
             }
         }
     }
